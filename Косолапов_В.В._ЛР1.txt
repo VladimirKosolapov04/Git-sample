@@ -30,3 +30,49 @@ Changes to be committed:
   (use "git restore --staged <file>..." to unstage)
         new file:   .gitignore
         new file:   unix.txt
+Сравнение в git осуществляется с помощью команды git diff:
+git branch dev - создание новой ветки (для сравнения файлов)
+git checkout dev - переход на новую ветку dev
+touch index.html - создание нового файла на ветке dev
+nano -w index.html - пишем "какой-нибудь" текст
+git add index.html - коммит кандидат
+git status
+On branch dev
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   index.html
+git commit -m "Firstly" - коммит на ветке dev
+git checkout master - переход на ветку master
+touch index.html - создаем файл с таким же названием
+nano -w index.html - заполняем его "другим" текстом, чтобы он отличался от файла на ветке dev
+git add index.html - коммит кандидат
+git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   index.html
+git commit -m "Sravn" - коммит на ветке master
+git diff master:index.html dev:index.html - сравнение файлов index.html на ветках master и dev
+diff --git a/index.html b/index.html
+index ed0e514..ae8f2be 100644
+--- a/index.html
++++ b/index.html
+@@ -1,10 +1,11 @@
+ <html>
+  <head>
+-
++  <title> Index </title>
+  </head>
+-
+  <body>
+-
++  <table>
++   <h1>
++   </h1>
++  </table>
+  </body>
+-
+ </html>
+git add . - индексируем изменения
+git status - проверяем, что изменилось
+git commit -m "Third commit" - сохранение изменений
