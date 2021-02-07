@@ -76,3 +76,8 @@ index ed0e514..ae8f2be 100644
 git add . - индексируем изменения
 git status - проверяем, что изменилось
 git commit -m "Third commit" - сохранение изменений
+Удаление файлов в git осуществляется с помощью команды git rm "файл который надо удалить":
+git rm .gitignore - удаляем этого файла
+git add . - индексируем все изменения
+git status - узнаем, что изменилось
+git commit -m "Delete file"
