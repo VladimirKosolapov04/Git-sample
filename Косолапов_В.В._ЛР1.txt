@@ -81,3 +81,15 @@ git rm .gitignore - удаляем этого файла
 git add . - индексируем все изменения
 git status - узнаем, что изменилось
 git commit -m "Delete file"
+Перемещение файлов осуществляется с помощью команды mv <файл> <папка или директория>:
+mkdir test_dir - создание новой директории
+ls - просматриваем содержимое и видим, что создалась новая директория test_dir
+index.html  test_dir/  unix.txt  Косолапов_В.В._ЛР1.txt
+mv unix.txt test_dir - перемещаем файл в новую директорию
+git add . - индексируем все изменения
+git status - просмтариваем, что изменилось
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    unix.txt -> test_dir/unix.txt
+git commit -m "Removed unix.txt -> test_dir/"
