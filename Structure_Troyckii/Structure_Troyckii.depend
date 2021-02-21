@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1613916522 source:c:\users\kosol\projects\programming\structure_troyckii\main.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
