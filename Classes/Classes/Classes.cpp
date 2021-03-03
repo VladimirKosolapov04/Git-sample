@@ -1,120 +1,135 @@
-﻿#include <stdio.h>
+﻿#include <iostream>
 #include <windows.h>
-#include <malloc.h>
-#include <locale.h>
+#include <cstdio>
+#include <clocale>
 
+using namespace std;
 
-class cars {
-	char* name = new char;
-	int year;
-	int amount;
-	int price;
+class Auto {
+private:
+	char* car_brand = new char;
+	int year_of_release;
+	int number_of_cars;
+	int price_of_one_car;
 public:
-	void Init(cars* a, int n) {
+	void Init(Auto *ptr, int n) {
 		for (int i = 0; i < n; i++) {
-			a[i].year = 0;
-			a[i].amount = 0;
-			a[i].price = 0;
+			ptr[i].year_of_release = 0;
+			ptr[i].number_of_cars = 0;
+			ptr[i].price_of_one_car = 0;
 		}
 	}
-
-	void Read(cars* a, int n) {
+	void Read(Auto* ptr, int n) {
 		for (int i = 0; i < n; i++) {
-			printf("\nВведите %d запись:\nМарка авто: ", i + 1);
+			cout << "Введите " << i + 1 << " запись:" << endl;
+			cout << "Введите марку автомобиля - ";
 			while (getchar() != '\n');
-			fgets(a[i].name, 15, stdin);
-			a[i].name[strlen(a[i].name) - 1] = '\0';
-			printf("Год выпуска: ");
-			scanf_s("%d", &a[i].year);
-			printf("Количество: ");
-			scanf_s("%d", &a[i].amount);
-			printf("Цена: ");
-			scanf_s("%d", &a[i].price);
+			fgets(ptr[i].car_brand, 15, stdin);
+			ptr[i].car_brand[strlen(ptr[i].car_brand) - 1] = '\0';
+			cout << "Введите год выпуска автомобиля - ";
+			cin >> ptr[i].year_of_release;
+			cout << "Введите количество автомобилей в ангаре - ";
+			cin >> ptr[i].number_of_cars;
+			cout << "Введите стоимость одного автомобиля данной марки (в $) - ";
+			cin >> ptr[i].price_of_one_car;
 		}
 	}
-
-	void Display(cars* a, int n) {
-		system("cls");
-		printf(" _______________________________________________________\n");
-		printf("|\t|\t\t|\t\t|\t|\t|\n");
-		printf("|   №   |    Марка авто   |  Год выпуска  |Кол-во |  Цена |\n");
-		printf("|_______|_______________|_______________|_______|_______|\n");
+	void Display(Auto *ptr, int n) {
+		cout << " ___________________________________________________________" << endl;
+		cout << "|       |                 |               |        |        |" << endl;
+		cout << "|   №   |    Марка авто   |  Год выпуска  | Кол-во |  Цена  |" << endl;
+		cout << "|_______|_________________|_______________|________|________|" << endl;
 		for (int i = 0; i < n; i++) {
-			printf("|%d\t", i + 1);
-			if (strlen(a[i].name) < 7)
-				printf("|%s\t\t", a[i].name);
-			else
-				printf("|%s\t", a[i].name);
-			printf("|%d\t\t", a[i].year);
-			printf("|%d\t", a[i].amount);
-			printf("|%d\t|\n", a[i].price);
+			cout << "|   " << i + 1 << "   |";
+			int prob_1 = 17 - strlen(ptr[i].car_brand);
+			while (prob_1 != 0) {
+				cout << " ";
+				prob_1--;
+			}
+			cout << ptr[i].car_brand;
+			cout << "|           " << ptr[i].year_of_release << "|";
+			int j, digit_1 = ptr[i].number_of_cars;
+			for (j = 1; digit_1 > 0; j++) {
+				digit_1 /= 10;
+			}
+			int prob_2 = 9 - j;
+			while (prob_2 != 0) {
+				cout << " ";
+				prob_2--;
+			}
+			cout << ptr[i].number_of_cars << "|";
+			int digit_2 = ptr[i].price_of_one_car;
+			for (j = 1; digit_2 > 0; j++) {
+				digit_2 /= 10;
+			}
+			int prob_3 = 9 - j;
+			while (prob_3 != 0) {
+				cout << " ";
+				prob_3--;
+			}
+			cout << ptr[i].price_of_one_car << "|" << endl;
 		}
-		printf("|_______|_______________|_______________|_______|_______|\n");
+		cout << " ____________________________________________________________" << "\n";
 	}
-
-	int Add(int a, int b) {
+	int Add(int a, int b) { 
 		return a + b;
 	}
-
-	void Sort(cars* a, int n) {
-		cars d;
+	void Sort(Auto* ptr, int n) {
+		Auto p;
 		for (int i = 0; i < n - 1; i++) {
 			for (int j = i + 1; j < n; j++) {
-				if (strcmp(a[i].name, a[j].name) > 0) {
-					d = a[i];
-					a[i] = a[j];
-					a[j] = d;
+				if (strcmp(ptr[i].car_brand, ptr[j].car_brand) > 0) {
+					p = ptr[i];
+					ptr[i] = ptr[j];
+					ptr[j] = p;
+
 				}
 			}
 		}
 	}
-
-
-	void Sum(cars* a, int n) {
+	void Sum(Auto* ptr, int n) {
 		int sum = 0;
 		for (int i = 0; i < n; i++) {
-			sum = Add(sum, a[i].amount);
+			sum = Add(sum, ptr[i].number_of_cars);
 		}
-		printf("Количество всех автомобилей в ангаре: %d\n", sum);
+		cout << "Количество всех автомобилей в ангаре: " << sum << endl;
 		system("pause");
 	}
-
-	void Cars_Free(cars* a) { delete[] a; }
+	void Auto_Free(Auto* ptr) {
+		delete[] ptr;
+	}
 };
 
-int main()
-{
-	setlocale(LC_ALL, "Russian");
+int main() {
+	setlocale(LC_CTYPE, "Rus");
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	int n, flag = 0, i;
-	printf("Количество записей: ");
-	scanf_s("%d", &n);
-	cars* a = new cars[n];
-	a->Init(a, n);
-	a->Read(a, n);
+	int n, i, f = 0;
+	cout << "Введите количество записей: ";
+	cin >> n;
+	Auto *ptr = new Auto[n];
+	ptr -> Init(ptr, n);
+	ptr -> Read(ptr, n);
 	do {
-		a->Display(a, n);
-		printf("\n\nНажмите 1 чтобы отсортировать таблицу по названию марки автомобилей.\n");
-		printf("Нажмите 2 чтобы узнать количество всех имеющихся автомобилей.\n");
-		printf("Для выхода нажмите 0.\n");
-		scanf_s("%d", &i);
+		ptr->Display(ptr, n);
+		cout << "\n\nНажмите 1 чтобы отсортировать таблицу по названию марки автомобиля.\n";
+		cout << "Нажмите 2 чтобы узнать количество всех имеющихся автомобилей в ангаре.\n";
+		cout << "Для выхода нажмите 0.\n";
+		cin >> i;
 		switch (i) {
 		case 1:
-			a->Sort(a, n);
+			ptr -> Sort(ptr, n);
 			break;
 		case 2:
-			a->Sum(a, n);
+			ptr -> Sum(ptr, n);
 			break;
-
 		case 0:
-			flag = 1;
+			f = 1;
 			break;
-
 		default:
 			break;
 		}
-	} while (flag == 0);
-	a->Cars_Free(a);
+	} while (f == 0);
+	ptr -> Auto_Free(ptr);
 	return 0;
 }
