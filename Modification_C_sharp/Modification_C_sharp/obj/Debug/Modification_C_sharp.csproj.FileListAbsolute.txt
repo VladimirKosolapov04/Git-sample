@@ -1,0 +1,7 @@
+C:\Users\kosol\Projects\Programming\Modification_C_sharp\Modification_C_sharp\bin\Debug\Modification_C_sharp.exe.config
+C:\Users\kosol\Projects\Programming\Modification_C_sharp\Modification_C_sharp\bin\Debug\Modification_C_sharp.exe
+C:\Users\kosol\Projects\Programming\Modification_C_sharp\Modification_C_sharp\bin\Debug\Modification_C_sharp.pdb
+C:\Users\kosol\Projects\Programming\Modification_C_sharp\Modification_C_sharp\obj\Debug\Modification_C_sharp.csprojAssemblyReference.cache
+C:\Users\kosol\Projects\Programming\Modification_C_sharp\Modification_C_sharp\obj\Debug\Modification_C_sharp.csproj.CoreCompileInputs.cache
+C:\Users\kosol\Projects\Programming\Modification_C_sharp\Modification_C_sharp\obj\Debug\Modification_C_sharp.exe
+C:\Users\kosol\Projects\Programming\Modification_C_sharp\Modification_C_sharp\obj\Debug\Modification_C_sharp.pdb
