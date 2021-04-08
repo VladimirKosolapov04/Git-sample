@@ -1,0 +1,7 @@
+C:\Users\kosol\Projects\Programming\Static_C_sharp\Static_C_sharp\bin\Debug\Static_C_sharp.exe.config
+C:\Users\kosol\Projects\Programming\Static_C_sharp\Static_C_sharp\bin\Debug\Static_C_sharp.exe
+C:\Users\kosol\Projects\Programming\Static_C_sharp\Static_C_sharp\bin\Debug\Static_C_sharp.pdb
+C:\Users\kosol\Projects\Programming\Static_C_sharp\Static_C_sharp\obj\Debug\Static_C_sharp.csprojAssemblyReference.cache
+C:\Users\kosol\Projects\Programming\Static_C_sharp\Static_C_sharp\obj\Debug\Static_C_sharp.csproj.CoreCompileInputs.cache
+C:\Users\kosol\Projects\Programming\Static_C_sharp\Static_C_sharp\obj\Debug\Static_C_sharp.exe
+C:\Users\kosol\Projects\Programming\Static_C_sharp\Static_C_sharp\obj\Debug\Static_C_sharp.pdb
